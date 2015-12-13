@@ -29,6 +29,10 @@
 
 - FIR滤波器采用的是汉明窗设计
 
+- DSP.m与DSP.fig为设计时用到的文件
+
+- DSP _export.m 与 DSP _export.fig为导出的文件没有fig文件
+
 <br/>
 
 ## 滤波器函数说明
