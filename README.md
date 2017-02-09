@@ -1,5 +1,5 @@
 # 声音处理示例程序说明文档
-##
+
 ### 题目：数字滤波器设计及其在语音信号分析中的应用
 #### **设计要求：**<br/>
 
@@ -15,7 +15,7 @@
 <br/>
 
 ## 系统界面
-![](http://7xpc1i.com1.z0.glb.clouddn.com/syst.png)
+![](photo.png)
 
 <br/>
 
@@ -41,16 +41,16 @@
 <br/>
 
 ## 滤波器函数说明
-###**IIR滤波器实现函数**<br/>
+### **IIR滤波器实现函数**<br/>
 
     function resdata = IIR_filter(wp,ws,rp,rs,data,Fs)
     Wp = 0.20*2*pi;Ws=0.25*2*pi;Rp=1;Rs=15;%数字性能指标
     %Wp=wp*pi;Ws=ws*pi;Rp=rp;Rs=rs;%数字性能指标
     Ts = 1/Fs;
     Wp1 = (2/Ts)*tan(Wp/2);   %将数字指标转换成模拟指标
-    Ws1 = (2/Ts)*tan(Ws/2); 
+    Ws1 = (2/Ts)*tan(Ws/2);
     [N,Wn]  = buttord(Wp1,Ws1,Rp,Rs,'s');  %N滤波器的最小阶数，Wn截止频率
-    [Z,P,K] = buttap(N);  %求模拟滤波器的系统函数，零极点和增益形式 
+    [Z,P,K] = buttap(N);  %求模拟滤波器的系统函数，零极点和增益形式
     [Bap,Aap] = zp2tf(Z,P,K); %变为多项式形式
     [b,a] = lp2lp(Bap,Aap,Wn);%去归一化
     [bz,az] = bilinear(b,a,Fs);   %双线性变换法实现AF到DF的转换
@@ -58,7 +58,7 @@
     freqz(bz,az,Fs); %滤波器的频率响应
     resdata=filter(bz,az,data);%数字滤波
 <br/>
-###**FIR滤波器实现函数**<br/>
+### **FIR滤波器实现函数**<br/>
 
     %选海明窗
     function resdata = FIR_filter(wp,ws,rp,rs,data,Fs)
@@ -76,17 +76,11 @@
 
 <br/>
 
-##最后
+## 最后
 初次用Matlab编写数字信号处理程序，难免存在BUG，请谅解。<br/>
 真心的欢迎每一位学习与开发者参与测试、修改与传播。让更多的人感受数字信号的魅力，谢谢。
 
-<br/>
-
-##开发者
-项晓强
-褚倩云
-徐如林<br/>
 电子邮箱：xrlin@163.com
 
 安徽大学电子信息工程学院通信工程系<br/>
-2015年12月13日 19:06:31 
+2015年12月13日 19:06:31
