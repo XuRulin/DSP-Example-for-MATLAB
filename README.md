@@ -15,7 +15,7 @@
 <br/>
 
 ## 系统界面
-![](https://github.com/XuRuLin/DSP-Example-for-Matlab/blob/master/photo.png)
+![Photo](photo.png)
 
 <br/>
 
